@@ -3,7 +3,13 @@
 const primary = "https://api.pexels.com/v1/search?query=your-query"
 const secondary = "https://api.pexels.com/v1/curated"
 
+// const hidden = (event) =>{
+//     const selected = event.target
+//     console.log(selected.parentElement)
 
+// }
+
+    
 
 const loadImages = (url) => {
     console.log(url)
@@ -14,14 +20,16 @@ const loadImages = (url) => {
     .then ( (response)  => response.json() )
     .then ( (data) =>{
 
+        
+
         const photos = data.photos
         let container = document.querySelector("#main-card-container")
         container.innerHTML = ""
         photos.forEach(element => {
            const inhalt = `
-            <div class="col-md-4">
+            <div class=" col-md-4">
               <div class="card mb-4 shadow-sm">
-                <img src="${element.src.medium}" class="card-image"/>
+                <img src="${element.src.medium}" class="card-image" id = "jord"/>
                 <div class="card-body">
                   <p class="card-text">
                     This is a wider card with supporting text below as a natural
@@ -40,9 +48,9 @@ const loadImages = (url) => {
                       </button>
                       <button
                         type="button"
-                        class="btn btn-sm btn-outline-secondary"
+                        class="chosen btn btn-sm btn-outline-secondary"
                       >
-                        Edit
+                        Hide
                       </button>
                     </div>
                     <small class="text-muted">9 mins</small>
@@ -51,13 +59,35 @@ const loadImages = (url) => {
               </div>
            </div>
         ` 
-        console.log(inhalt)
         container.innerHTML += inhalt
         });
-        
-    } )
-    
+           
+    } )    
 }
+const hideCard = () =>{
+    const cardArr = document.getElementsByClassName("chosen")
+    // console.log(cardArr)
+
+    for( let i = 0 ; i < cardArr.length ; i++){
+        cardArr[i].addEventListener("click", (e) => {
+            const selected =  e.target
+            const parent = selected.parentNode.parentNode.parentNode.parentNode.parentNode
+            
+            
+            console.log(selected)
+            console.log(parent)
+
+        })
+    }
+}
+
+
+
+// window.onload =  function(){
+//     hidden()
+// }
+
+
 
 
 
