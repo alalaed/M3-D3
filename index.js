@@ -1,11 +1,13 @@
 
 
+const primary = "https://api.pexels.com/v1/search?query=your-query"
+const secondary = "https://api.pexels.com/v1/curated"
 
 
 
-const loadImages = () => {
-    console.log("hi")
-    fetch("https://api.pexels.com/v1/search?query=your-query" ,{         
+const loadImages = (url) => {
+    console.log(url)
+    fetch( url ,{         
         method: "GET",             
         headers:{
             Authorization: "563492ad6f91700001000001f1fef3be481644fea5170521a236b5a1"} })
@@ -14,13 +16,12 @@ const loadImages = () => {
 
         const photos = data.photos
         let container = document.querySelector("#main-card-container")
-
+        container.innerHTML = ""
         photos.forEach(element => {
-            console.log(element.src.medium)
            const inhalt = `
             <div class="col-md-4">
               <div class="card mb-4 shadow-sm">
-                <img src="${element.src.medium}"/>
+                <img src="${element.src.medium}" class="card-image"/>
                 <div class="card-body">
                   <p class="card-text">
                     This is a wider card with supporting text below as a natural
