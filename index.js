@@ -89,6 +89,9 @@ const loadImages = (url) => {
         });
         
         hideCard()
+        setTimeout(function(){
+            alert("There are " + photos.length)
+        }, 5000)
            
     } )
 // } else{
