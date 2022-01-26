@@ -213,6 +213,10 @@
           <p>
             <a href="#" onclick="loadImages(primary)" class="btn btn-primary my-2">Load Images</a>
             <a href="#" onclick="loadImages(secondary)" class="btn btn-secondary my-2">Load Secondary Images</a>
+            <div>
+              <input id="search-input" type="text" placeholder="search">
+              <button id="search-button" onclick="loadImages(searchQuery())" class="btn btn-danger">Search</button>
+            </div>
           </p>
         </div>
       </section>
