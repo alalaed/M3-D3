@@ -20,11 +20,6 @@ const hideCard = () =>{
             
             const card = selected.closest(".col-md-4")
             card.classList.add("hide")
-            
-            console.log(selected)
-            console.log(card)
-            console.log(typeof card)
-
         })
     }
 }
