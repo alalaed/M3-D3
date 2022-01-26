@@ -35,8 +35,6 @@ const loadImages = (url) => {
     .then ( (response)  => response.json() )
     .then ( (data) =>{
 
-        
-
         const photos = data.photos
         let container = document.querySelector("#main-card-container")
         container.innerHTML = ""
@@ -68,7 +66,7 @@ const loadImages = (url) => {
                         Hide
                       </button>
                     </div>
-                    <small class="text-muted">9 mins</small>
+                    <small class="text-muted">${element.id}</small>
                   </div>
                 </div>
               </div>
