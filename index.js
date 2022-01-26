@@ -9,6 +9,26 @@ const secondary = "https://api.pexels.com/v1/curated"
 
 // }
 
+const hideCard = () =>{
+    const cardArr = document.getElementsByClassName("chosen")
+    // console.log(cardArr)
+
+    for( let i = 0 ; i < cardArr.length ; i++){
+        cardArr[i].addEventListener("click", (e) => {
+            const selected =  e.target
+            // const parent = selected.parentNode.parentNode.parentNode.parentNode.parentNode
+            
+            const card = selected.closest(".col-md-4")
+            card.classList.add("hide")
+            
+            console.log(selected)
+            console.log(card)
+            console.log(typeof card)
+
+        })
+    }
+}
+
     
 
 const loadImages = (url) => {
@@ -61,25 +81,11 @@ const loadImages = (url) => {
         ` 
         container.innerHTML += inhalt
         });
+        hideCard()
            
     } )    
 }
-const hideCard = () =>{
-    const cardArr = document.getElementsByClassName("chosen")
-    // console.log(cardArr)
 
-    for( let i = 0 ; i < cardArr.length ; i++){
-        cardArr[i].addEventListener("click", (e) => {
-            const selected =  e.target
-            const parent = selected.parentNode.parentNode.parentNode.parentNode.parentNode
-            
-            
-            console.log(selected)
-            console.log(parent)
-
-        })
-    }
-}
 
 
 
